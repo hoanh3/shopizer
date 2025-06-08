@@ -47,7 +47,7 @@ public class MerchantStore extends SalesManagerEntity<Integer, MerchantStore> im
 
   private static final long serialVersionUID = 1L;
 
-  public final static String DEFAULT_STORE = "DEFAULT";
+  public final static String DEFAULT_STORE = "hoantc";
   
   public MerchantStore(Integer id, String code, String name) {
 	  this.id = id;

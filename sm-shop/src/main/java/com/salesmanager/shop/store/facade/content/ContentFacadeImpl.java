@@ -628,8 +628,9 @@ public class ContentFacadeImpl implements ContentFacade {
 			ReadableContentBox box = new ReadableContentBox();
 			
 			if(language != null) {
-				
-				content = 	Optional.ofNullable(contentService.getByCode(code, store, language))
+
+				Content byCode = contentService.getByCode(code, store, language);
+				content = 	Optional.ofNullable(byCode)
 						.orElseThrow(() -> new ResourceNotFoundException(
 								"Resource not found [" + code + "] for store [" + store.getCode() + "]"));
 				

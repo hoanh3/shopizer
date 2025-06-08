@@ -112,8 +112,6 @@ public class InitializationDatabaseImpl implements InitializationDatabase {
 		createSubReferences();
 		createModules();
 		createMerchant();
-
-
 	}
 	
 	private void createSecurityGroups() throws ServiceException {
@@ -323,9 +321,9 @@ public class InitializationDatabaseImpl implements InitializationDatabase {
               //load reference/zones/* (zone config for additional country)
               //example in.json and in-fr.son
               //will load es zones and use a specific file for french es zones
-      		  List<Map<String, Zone>> loadIndividualZones = zonesLoader.loadIndividualZones();
+//      		  List<Map<String, Zone>> loadIndividualZones = zonesLoader.loadIndividualZones();
       		  
-      		loadIndividualZones.forEach(this::addZonesToDb);
+//      		loadIndividualZones.forEach(this::addZonesToDb);
 
   		} catch (Exception e) {
   		    
@@ -379,28 +377,28 @@ public class InitializationDatabaseImpl implements InitializationDatabase {
 		
 		Date date = new Date(System.currentTimeMillis());
 		
-		Language en = languageService.getByCode("en");
-		Country ca = countryService.getByCode("CA");
-		Currency currency = currencyService.getByCode("CAD");
-		Zone qc = zoneService.getByCode("QC");
+		Language vnm = languageService.getByCode("vi");
+		Country vn = countryService.getByCode("VN");
+		Currency currency = currencyService.getByCode("VND");
+		Zone hn = zoneService.getByCode("VN-HN");
 		
 		List<Language> supportedLanguages = new ArrayList<Language>();
-		supportedLanguages.add(en);
+		supportedLanguages.add(vnm);
 		
 		//create a merchant
 		MerchantStore store = new MerchantStore();
-		store.setCountry(ca);
+		store.setCountry(vn);
 		store.setCurrency(currency);
-		store.setDefaultLanguage(en);
+		store.setDefaultLanguage(vnm);
 		store.setInBusinessSince(date);
-		store.setZone(qc);
-		store.setStorename("Shopizer");
+		store.setZone(hn);
+		store.setStorename("Shop by @hoantc");
 		store.setStorephone("888-888-8888");
 		store.setCode(MerchantStore.DEFAULT_STORE);
-		store.setStorecity("My city");
-		store.setStoreaddress("1234 Street address");
+		store.setStorecity("Hanoi");
+		store.setStoreaddress("Ha Dong, Ha Noi, Viet Nam");
 		store.setStorepostalcode("H2H-2H2");
-		store.setStoreEmailAddress("contact@shopizer.com");
+		store.setStoreEmailAddress("hoantc@admin.com");
 		store.setDomainName("localhost:8080");
 		store.setStoreTemplate("december");
 		store.setRetailer(true);
@@ -416,14 +414,14 @@ public class InitializationDatabaseImpl implements InitializationDatabase {
 		
 		//create default manufacturer
 		Manufacturer defaultManufacturer = new Manufacturer();
-		defaultManufacturer.setCode("DEFAULT");
+		defaultManufacturer.setCode("hoantc");
 		defaultManufacturer.setMerchantStore(store);
 		
 		ManufacturerDescription manufacturerDescription = new ManufacturerDescription();
-		manufacturerDescription.setLanguage(en);
-		manufacturerDescription.setName("DEFAULT");
+		manufacturerDescription.setLanguage(vnm);
+		manufacturerDescription.setName("hoantc");
 		manufacturerDescription.setManufacturer(defaultManufacturer);
-		manufacturerDescription.setDescription("DEFAULT");
+		manufacturerDescription.setDescription("hoantc");
 		defaultManufacturer.getDescriptions().add(manufacturerDescription);
 		
 		manufacturerService.create(defaultManufacturer);

@@ -39,7 +39,7 @@ public class UserServicesImpl implements WebUserServices{
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserServicesImpl.class);
 	
-	private static final String DEFAULT_INITIAL_PASSWORD = "password";
+	private static final String DEFAULT_INITIAL_PASSWORD = "124124aA@";
 
 	@Inject
 	private UserService userService;
@@ -121,10 +121,9 @@ public class UserServicesImpl implements WebUserServices{
 		  
 		  List<Group> groups = groupService.listGroup(GroupType.ADMIN);
 		  
-		  //creation of the super admin admin:password)
-		  com.salesmanager.core.model.user.User user = new com.salesmanager.core.model.user.User("admin@shopizer.com",password,"admin@shopizer.com");
-		  user.setFirstName("Administrator");
-		  user.setLastName("User");
+		  com.salesmanager.core.model.user.User user = new com.salesmanager.core.model.user.User("hoantc",password,"admin@admin.com");
+		  user.setFirstName("Hoan");
+		  user.setLastName("Tran");
 		  
 		  for(Group group : groups) {
 			  if(group.getGroupName().equals(Constants.GROUP_SUPERADMIN) || group.getGroupName().equals(Constants.GROUP_ADMIN)) {

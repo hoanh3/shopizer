@@ -35,7 +35,7 @@ uniqueConstraints=
 public class TaxClass extends SalesManagerEntity<Long, TaxClass> {
 	private static final long serialVersionUID = 1L;
 	
-	public final static String DEFAULT_TAX_CLASS = "DEFAULT";
+	public final static String DEFAULT_TAX_CLASS = "hoantc";
 	
 	public TaxClass(String code) {
 		this.code = code;

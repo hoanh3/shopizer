@@ -25,8 +25,8 @@ public class Constants {
 
   public final static String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
   public final static String DEFAULT_DATE_FORMAT_YEAR = "yyyy";
-  public final static String DEFAULT_LANGUAGE = "en";
-  public final static String DEFAULT_COUNTRY = "CA";
+  public final static String DEFAULT_LANGUAGE = "vi";
+  public final static String DEFAULT_COUNTRY = "VN";
 
   public final static String EMAIL_CONFIG = "EMAIL_CONFIG";
 
@@ -43,11 +43,16 @@ public class Constants {
   public final static String OT_REFUND_MODULE_CODE = "refund";
   public final static String OT_DISCOUNT_TITLE = "order.total.discount";
 
-  public final static String DEFAULT_STORE = "DEFAULT";
+  public final static String DEFAULT_STORE = "hoantc";
 
   public final static Locale DEFAULT_LOCALE = Locale.US;
   public final static Currency DEFAULT_CURRENCY = Currency.getInstance(Locale.US);
   
   public final static String PAYMENT_MODULES = "PAYMENT";
+
+  public static class LOCALE {
+    public static final Locale VIETNAM = new Locale("vi", "VN");
+    public static final Locale viLocale = new Locale("vi");
+  }
 
 }
